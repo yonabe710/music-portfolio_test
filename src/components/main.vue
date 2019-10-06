@@ -1,12 +1,5 @@
 <template>
   <div id="container">
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> f7b45e3... omanko
-=======
->>>>>>> 3305ceb... oppai
     <header class="header">
       <b-navbar class = "notification is-success">
         <template slot="brand">
@@ -39,6 +32,7 @@
                     </a>
                     <a href="https://yonabe.netlify.com/#/signin" class="button is-light">
                         Sign in
+
                     </a>
                 </div>
             </b-navbar-item>
@@ -226,7 +220,6 @@ background:linear-gradient(135deg, #f5515f 0%,#c9293c 100%);
 font-size:26px;
 }
 /* -----------------------フォローボタンのstylesheet----------------------------- */
-
 .movie-wrap {
   position: relative;
   padding-bottom: 56.25%; /*アスペクト比 16:9の場合の縦幅*/
