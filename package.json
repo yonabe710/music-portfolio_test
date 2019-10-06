@@ -75,12 +75,8 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-<<<<<<< HEAD
   ],
   "main": "index.js",
   "repository": "https://github.com/at0arumati/music-portfolio.git",
   "license": "MIT"
-=======
-  ]
->>>>>>> f7b45e3... omanko
 }
