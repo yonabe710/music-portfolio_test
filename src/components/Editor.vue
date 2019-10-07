@@ -31,7 +31,7 @@
                         <strong>Sign up</strong>
                     </a>
                     <a href="https://yonabe.netlify.com/#/signin" class="button is-light">
-                        Log in
+                        Sign in
                     </a>
                 </div>
             </b-navbar-item>
@@ -270,11 +270,6 @@ background:linear-gradient(135deg, #f5515f 0%,#c9293c 100%);
 font-size:26px;
 }
 /* -----------------------フォローボタンのstylesheet----------------------------- */
-
-#main{
-  margin-left: 100px;
-  margin-right: 100px;
-}
 
 .movie-wrap {
   position: relative;

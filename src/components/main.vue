@@ -34,11 +34,11 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <a href="http://serveo.net:8083/#/signup" class="button is-primary">
+                    <a href="https://yonabe.netlify.com/#/signup" class="button is-primary">
                         <strong>Sign up</strong>
                     </a>
-                    <a href="http://serveo.net:8083/#/signin" class="button is-light">
-                        Log in
+                    <a href="https://yonabe.netlify.com/#/signin" class="button is-light">
+                        Sign in
                     </a>
                 </div>
             </b-navbar-item>
@@ -226,11 +226,6 @@ background:linear-gradient(135deg, #f5515f 0%,#c9293c 100%);
 font-size:26px;
 }
 /* -----------------------フォローボタンのstylesheet----------------------------- */
-
-#main{
-  margin-left: 100px;
-  margin-right: 100px;
-}
 
 .movie-wrap {
   position: relative;
