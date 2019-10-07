@@ -32,7 +32,6 @@
                     </a>
                     <a href="https://yonabe.netlify.com/#/signin" class="button is-light">
                         Sign in
-
                     </a>
                 </div>
             </b-navbar-item>
