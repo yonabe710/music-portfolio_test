@@ -65,13 +65,11 @@
           <div class="tile is-parent is-vertical is-8">
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
-              <div class="content">
-                <!-- Content -->
-                <div class="movie-wrap">
-                  <iframe width="854" height="480" src="https://www.youtube.com/embed/VYzFViCYCfc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                
-                </div>
-              </div>
+
+              <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+                <iframe id = "player" type = "text/html" width = "640" height = "360" , :src = "this.url" frameborder = "0"></iframe>
             </article>
+
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
               <div class="content">
@@ -114,7 +112,6 @@
   </div>
 </template>
 
-<script>
     }
   }
 }
