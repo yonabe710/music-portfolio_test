@@ -46,13 +46,9 @@
             <h1 class="title">
               Profile
             </h1>
-
-            <!-- <div class="editor"> -->
             <h2 class="subtitle">
               幼少期より14年間ピアノを嗜む。大学からバンドサークルにてボーカル・ギターを担当。基本的にコピーバンド専門で、作曲もたまに行っている。楽器はドラム以外全て演奏可能。
             </h2>
-            <!-- </div> -->
-
             <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
               <li><a href="https://www.youtube.com/channel/UCoOnBhAiccYdkJUbgwdorxg/" class="flowbtn7 fl_yu7"><i><font-awesome-icon :icon = "['fab','youtube']"></font-awesome-icon></i></a></li>
