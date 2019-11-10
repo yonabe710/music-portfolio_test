@@ -65,7 +65,10 @@
           <div class="tile is-parent is-vertical is-8">
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
-                <iframe id = "player" type = "text/html" width = "640" height = "360" :src= "url" frameborder = "0"></iframe>
+              <div class = "movie-wrap">
+                <iframe id = "player"  width="854" height="480" :src= "url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <textarea v-model = "url"></textarea>
             </article>
 
             <article class="tile is-child notification is-light">
@@ -113,7 +116,7 @@
 export default {
   data () {
     return {
-      url: 'https://www.youtube.com/watch?v=6ZIjbX1gj88'
+      url: 'https://www.youtube.com/embed/58TGnNnXT6E'
     }
   }
 }
