@@ -65,7 +65,7 @@
           <div class="tile is-parent is-vertical is-8">
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
-                <iframe id = "player" type = "text/html" width = "640" height = "360" , :src= "url" frameborder = "0"></iframe>
+                <iframe id = "player" type = "text/html" width = "640" height = "360" :src= "url" frameborder = "0"></iframe>
             </article>
 
             <article class="tile is-child notification is-light">
@@ -109,6 +109,11 @@
   </div>
 </template>
 
+<script>
+export default {
+  data () {
+    return {
+      url: 'https://www.youtube.com/watch?v=6ZIjbX1gj88'
     }
   }
 }
