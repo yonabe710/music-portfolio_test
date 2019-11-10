@@ -65,9 +65,7 @@
           <div class="tile is-parent is-vertical is-8">
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
-
-              <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-                <iframe id = "player" type = "text/html" width = "640" height = "360" , :src = "this.url" frameborder = "0"></iframe>
+                <iframe id = "player" type = "text/html" width = "640" height = "360" , :src= "url" frameborder = "0"></iframe>
             </article>
 
             <article class="tile is-child notification is-light">
@@ -108,7 +106,6 @@
         </div>
       </div>
     </footer>
-
   </div>
 </template>
 
@@ -230,5 +227,4 @@ font-size:26px;
 .tile.is-child{
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
 }
-
 </style>
