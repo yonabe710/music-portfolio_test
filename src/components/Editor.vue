@@ -46,13 +46,9 @@
             <h1 class="title">
               Profile
             </h1>
-
-            <!-- <div class="editor"> -->
             <h2 class="subtitle">
-              東大理③出身の高学歴イケメン。幼少期より14年間ピアノを嗜む貴族。大学からバンドサークルにてボーカル・ギターを担当。基本的にコピーバンド専門で、作曲もたまに行っている。楽器はドラム以外全て演奏可能。
+              幼少期より14年間ピアノを嗜む。大学からバンドサークルにてボーカル・ギターを担当。基本的にコピーバンド専門で、作曲もたまに行っている。楽器はドラム以外全て演奏可能。
             </h2>
-            <!-- </div> -->
-
             <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
               <li><a href="https://www.youtube.com/channel/UCoOnBhAiccYdkJUbgwdorxg/" class="flowbtn7 fl_yu7"><i><font-awesome-icon :icon = "['fab','youtube']"></font-awesome-icon></i></a></li>
@@ -69,6 +65,7 @@
                 <iframe id = "player"  width="854" height="480" :src= "url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
               <textarea v-model = "url"></textarea>
+              <button type=“button” onclick="location.href='https://yonabe.netlify.com/#/'">save</button>
             </article>
 
             <article class="tile is-child notification is-light">
@@ -116,7 +113,7 @@
 export default {
   data () {
     return {
-      url: 'https://www.youtube.com/embed/58TGnNnXT6E'
+      url: 'https://www.youtube.com/embed/r7vDdgwQVj4'
     }
   }
 }

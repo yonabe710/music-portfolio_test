@@ -54,7 +54,7 @@
               Profile
             </h1>
             <h2 class="subtitle">
-              東大理③出身の高学歴イケメン。幼少期より14年間ピアノを嗜む貴族。大学からバンドサークルにてボーカル・ギターを担当。基本的にコピーバンド専門で、作曲もたまに行っている。楽器はドラム以外全て演奏可能。
+              幼少期より14年間ピアノを嗜む。大学からバンドサークルにてボーカル・ギターを担当。基本的にコピーバンド専門で、作曲もたまに行っている。楽器はドラム以外全て演奏可能。
             </h2>
             <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
@@ -69,11 +69,11 @@
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
               <div class="content">
-                <!-- Content -->
                 <div class="movie-wrap">
                   <iframe width="854" height="480" src="https://www.youtube.com/embed/AygQwF5wfVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
+              <button type=“button” onclick="location.href='https://yonabe.netlify.com/#/editor'">edit</button>
             </article>
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
