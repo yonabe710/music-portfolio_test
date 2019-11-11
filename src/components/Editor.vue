@@ -107,6 +107,9 @@
       </div>
     </footer>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3305ceb... oppai
 
   <!-- <div class="editor">
     <button @click="toggleEditable">
@@ -124,13 +127,19 @@
         <template v-else>{{ greet }}</template>
       </p>------------
     </div> -->
+<<<<<<< HEAD
 =======
 >>>>>>> f7b45e3... omanko
+=======
+>>>>>>> 3305ceb... oppai
   </div>
 </template>
 
 <script>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3305ceb... oppai
 export default {
   name: 'Editor',
   data () {
@@ -142,6 +151,7 @@ export default {
   methods: {
     toggleEditable () {
       this.$data.editable = !this.$data.editable
+<<<<<<< HEAD
 =======
 import firebase from 'firebase'
 
@@ -159,12 +169,17 @@ export default {
         this.$router.push('/signin')
       })
 >>>>>>> f7b45e3... omanko
+=======
+>>>>>>> 3305ceb... oppai
     }
   }
 }
 </script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 3305ceb... oppai
 
 <style scoped>
 h1, h2 {
@@ -286,4 +301,7 @@ font-size:26px;
 }
 
 </style>
+<<<<<<< HEAD
 >>>>>>> f7b45e3... omanko
+=======
+>>>>>>> 3305ceb... oppai

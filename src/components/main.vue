@@ -1,9 +1,12 @@
 <template>
   <div id="container">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> f7b45e3... omanko
+=======
+>>>>>>> 3305ceb... oppai
     <header class="header">
       <b-navbar class = "notification is-success">
         <template slot="brand">
