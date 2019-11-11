@@ -27,10 +27,10 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <a href="http://serveo.net:8083/#/signup" class="button is-primary">
+                    <a href="https://yonabe.netlify.com/#/signup" class="button is-primary">
                         <strong>Sign up</strong>
                     </a>
-                    <a href="http://serveo.net:8083/#/signin" class="button is-light">
+                    <a href="https://yonabe.netlify.com/#/signin" class="button is-light">
                         Log in
                     </a>
                 </div>
@@ -106,6 +106,7 @@
         </div>
       </div>
     </footer>
+<<<<<<< HEAD
 
   <!-- <div class="editor">
     <button @click="toggleEditable">
@@ -123,10 +124,13 @@
         <template v-else>{{ greet }}</template>
       </p>------------
     </div> -->
+=======
+>>>>>>> f7b45e3... omanko
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 export default {
   name: 'Editor',
   data () {
@@ -138,7 +142,148 @@ export default {
   methods: {
     toggleEditable () {
       this.$data.editable = !this.$data.editable
+=======
+import firebase from 'firebase'
+
+export default {
+  name: 'main',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      name: firebase.auth().currentUser.email
+    }
+  },
+  methods: {
+    signOut: function () {
+      firebase.auth().signOut().then(() => {
+        this.$router.push('/signin')
+      })
+>>>>>>> f7b45e3... omanko
     }
   }
 }
 </script>
+<<<<<<< HEAD
+=======
+
+<style scoped>
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+
+.notification.is-success{
+  height: 50px
+}
+
+#container{
+  background-color: #dcdcdc;
+}
+
+/* -----------------------フォローボタンのstylesheet----------------------------- */
+.follow{
+  text-align : right;
+}
+
+/* ボタン全体 */
+.flowbtn7{
+border-radius:50%;
+position:relative;
+display:inline-block;
+width:50px;
+height:50px;
+font-size:30px;
+color:#fff!important;
+text-decoration:none;
+transition:.5s;
+}
+/* アイコンをど真ん中に*/
+.flowbtn7 i{
+position:absolute;
+top:50%;
+left:50%;
+-ms-transform:translate(-50%,-50%);
+-webkit-transform:translate(-50%,-50%);
+transform:translate(-50%,-50%);
+}
+/* ulタグの内側余白を０にする */
+ul.snsbtniti{
+padding:0!important;
+}
+/* ボタン全体の位置 */
+.snsbtniti{
+display:flex;
+flex-flow:row wrap;
+justify-content:space-around;
+}
+
+/* ボタン同士の余白 */
+.snsbtniti li{
+flex:0 0 33%;
+text-align:center !important;
+}
+
+/* ボタンにマウスを乗せた時 */
+.flowbtn7:hover{
+-webkit-transform:translateY(-5px);
+-ms-transform:translateY(-5px);
+transform:translateY(-5px);
+}
+
+/* Twitter */
+.fl_tw7{
+background:linear-gradient(135deg, #13f1fc 0%,#0470dc 100%);
+}
+
+/* Facebook */
+.fl_fb7{
+background: linear-gradient(135deg, #6699ff 0%,#3b5998 100%);
+}
+
+/* YouTube */
+.fl_yu7{
+background:linear-gradient(135deg, #f5515f 0%,#c9293c 100%);
+font-size:26px;
+}
+/* -----------------------フォローボタンのstylesheet----------------------------- */
+
+#main{
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.movie-wrap {
+  position: relative;
+  padding-bottom: 56.25%; /*アスペクト比 16:9の場合の縦幅*/
+  height: 0;
+  overflow: hidden;
+}
+.movie-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.soundcloud{
+  margin-top: 50px;
+  padding: 30px 10px;
+  background-color: #dcdcdc
+}
+
+.tile.is-child{
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
+}
+
+</style>
+>>>>>>> f7b45e3... omanko
