@@ -46,9 +46,13 @@
             <h1 class="title">
               Profile
             </h1>
+
+            <!-- <div class="editor"> -->
             <h2 class="subtitle">
               東大理③出身の高学歴イケメン。幼少期より14年間ピアノを嗜む貴族。大学からバンドサークルにてボーカル・ギターを担当。基本的にコピーバンド専門で、作曲もたまに行っている。楽器はドラム以外全て演奏可能。
             </h2>
+            <!-- </div> -->
+
             <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
               <li><a href="https://www.youtube.com/channel/UCoOnBhAiccYdkJUbgwdorxg/" class="flowbtn7 fl_yu7"><i><font-awesome-icon :icon = "['fab','youtube']"></font-awesome-icon></i></a></li>
@@ -64,7 +68,7 @@
               <div class="content">
                 <!-- Content -->
                 <div class="movie-wrap">
-                  <iframe width="854" height="480" src="https://www.youtube.com/embed/AygQwF5wfVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe width="854" height="480" src="https://www.youtube.com/embed/VYzFViCYCfc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                
                 </div>
               </div>
             </article>
@@ -106,80 +110,15 @@
         </div>
       </div>
     </footer>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3305ceb... oppai
 
-  <!-- <div class="editor">
-    <button @click="toggleEditable">
-      < editableがtrueであればSaveを表示、そうでなければEditを表示 -->
-      <!-- <template v-if="editable">Save</template>
-      <template v-else>Edit</template>
-    </button> -->
-    <!-- <div>
-      bio
-      <p> -->
-        <!-- editableがtrueであればtextareaの中身を表示、そうでなければHelloを表示-->
-        <!-- <template v-if="editable">
-          <textarea v-model="greet"></textarea>
-        </template>
-        <template v-else>{{ greet }}</template>
-      </p>------------
-    </div> -->
-<<<<<<< HEAD
-=======
->>>>>>> f7b45e3... omanko
-=======
->>>>>>> 3305ceb... oppai
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3305ceb... oppai
-export default {
-  name: 'Editor',
-  data () {
-    return {
-      editable: false,
-      greet: 'hello'
-    }
-  },
-  methods: {
-    toggleEditable () {
-      this.$data.editable = !this.$data.editable
-<<<<<<< HEAD
-=======
-import firebase from 'firebase'
-
-export default {
-  name: 'main',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-      name: firebase.auth().currentUser.email
-    }
-  },
-  methods: {
-    signOut: function () {
-      firebase.auth().signOut().then(() => {
-        this.$router.push('/signin')
-      })
->>>>>>> f7b45e3... omanko
-=======
->>>>>>> 3305ceb... oppai
     }
   }
 }
 </script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 3305ceb... oppai
 
 <style scoped>
 h1, h2 {
@@ -296,7 +235,3 @@ font-size:26px;
 }
 
 </style>
-<<<<<<< HEAD
->>>>>>> f7b45e3... omanko
-=======
->>>>>>> 3305ceb... oppai
