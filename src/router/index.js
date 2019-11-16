@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import main from '@/components/main'
+import MyPage from '@/components/MyPage'
 import Signup from '@/components/Signup'
 import Signin from '@/components/Signin'
 import Editor from '@/components/Editor'
@@ -16,8 +16,8 @@ let router = new Router({
     },
     {
       path: '/',
-      name: 'main',
-      component: main,
+      name: 'MyPage',
+      component: MyPage,
       meta: { requiresAuth: true }
     },
     {

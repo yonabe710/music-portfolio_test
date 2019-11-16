@@ -65,7 +65,7 @@
                 <iframe id = "player"  width="854" height="480" :src= "url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
               <textarea v-model = "url"></textarea>
-              <button type=“button” onclick="location.href='https://yonabe.netlify.com/#/'">save</button>
+              <button type=“submit” onclick="location.href='https://yonabe.netlify.com/#/'">save</button>
             </article>
 
             <article class="tile is-child notification is-light">
