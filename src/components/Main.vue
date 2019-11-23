@@ -61,13 +61,12 @@
           <div class="tile is-parent is-vertical is-8">
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
-              <div class = "movie-wrap">
-                <iframe id = "player"  width="854" height="480" :src= "url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <div class="content">
+                <div class="movie-wrap">
+                  <iframe width="854" height="480" src="https://www.youtube.com/embed/AygQwF5wfVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
               </div>
-              <textarea v-model = "url"></textarea>
-              <button type=“submit” onclick="location.href='https://yonabe.netlify.com/#/mypage'">save</button>
             </article>
-
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
               <div class="content">
@@ -110,10 +109,21 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+
 export default {
+  name: 'MyPage',
   data () {
     return {
-      url: 'https://www.youtube.com/embed/r7vDdgwQVj4'
+      msg: 'Welcome to Your Vue.js App',
+      name: firebase.auth().currentUser.email
+    }
+  },
+  methods: {
+    signOut: function () {
+      firebase.auth().signOut().then(() => {
+        this.$router.push('/signin')
+      })
     }
   }
 }
@@ -208,7 +218,6 @@ background:linear-gradient(135deg, #f5515f 0%,#c9293c 100%);
 font-size:26px;
 }
 /* -----------------------フォローボタンのstylesheet----------------------------- */
-
 .movie-wrap {
   position: relative;
   padding-bottom: 56.25%; /*アスペクト比 16:9の場合の縦幅*/
@@ -232,4 +241,5 @@ font-size:26px;
 .tile.is-child{
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
 }
+
 </style>
