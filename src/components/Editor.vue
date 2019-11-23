@@ -113,6 +113,10 @@
 export default {
   data () {
     return {
+      const yturl = "https://www.youtube.com/watch?v=jis7E_mbwPw&list=PLjUYRJfqz5WsaAcHvdt6Qv5gaERy75fej"
+const parser = new URL(yturl);
+const vid = parser.searchParams.get("v");
+const embedurl = `https://www.youtube.com/embed/${vid}`
       url: 'https://www.youtube.com/embed/r7vDdgwQVj4'
     }
   }
