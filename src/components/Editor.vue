@@ -62,7 +62,7 @@
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
               <div class = "movie-wrap">
-                <youtube-media :video-id="videoId"></youtube-media>
+                <youtube-media :video-id="videoId" player-width="845" player-height="750"></youtube-media>
               </div>
               <textarea v-model = "yturl"></textarea>
               <button type=“submit” @click="getVideoID">change</button>
