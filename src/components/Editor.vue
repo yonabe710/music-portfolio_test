@@ -62,7 +62,7 @@
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
               <div class = "movie-wrap">
-                <youtube-media :video-id="videoId" player-width="845" player-height="750"></youtube-media>
+                <youtube :video-id="videoId" player-width="845" player-height="100%"></youtube>
               </div>
               <textarea v-model = "yturl"></textarea>
               <button type=“submit” @click="getVideoID">change</button>
@@ -115,7 +115,7 @@ export default {
   data: function () {
     return {
       yturl: 'https://www.youtube.com/watch?v=jis7E_mbwPw&list=PLjUYRJfqz5WsaAcHvdt6Qv5gaERy75fej',
-      videoId: 'r-9fiNDU-Iw'
+      videoId: ''
     }
   },
   methods: {
@@ -219,15 +219,15 @@ font-size:26px;
 .movie-wrap {
   position: relative;
   padding-bottom: 56.25%; /*アスペクト比 16:9の場合の縦幅*/
-  height: 0;
+  /* height: 0; */
   overflow: hidden;
 }
-.movie-wrap youtu {
+.movie-wrap iframe {
   position: absolute;
   top: 0;
   left: 20px;
   width: 100%;
-  height: 100%;
+  height: 1000px  !important;
 }
 
 .soundcloud{

@@ -20,7 +20,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 Vue.use(Buefy)
-Vue.use(VueYouTubeEmbed, { global: true, componentId: 'youtube-media' })
+Vue.use(VueYouTubeEmbed)
 
 const config = {
   apiKey: 'AIzaSyAnU04He62KPgpw2dprE-qzrOwwaMb2E1A',
