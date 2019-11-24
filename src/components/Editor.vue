@@ -111,7 +111,7 @@
 
 <script>
 export default {
-  data () {
+  data: function () {
     return {
       url: 'https://www.youtube.com/embed/r7vDdgwQVj4'
     }
