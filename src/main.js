@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import VueYouTubeEmbed from 'vue-youtube-embed'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import App from './App'
@@ -19,6 +20,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 Vue.use(Buefy)
+Vue.use(VueYouTubeEmbed, { global: true, componentId: "youtube-media" })
 
 const config = {
   apiKey: 'AIzaSyAnU04He62KPgpw2dprE-qzrOwwaMb2E1A',
