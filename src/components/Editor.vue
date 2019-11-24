@@ -62,7 +62,7 @@
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
               <div class = "movie-wrap">
-                <iframe id = "player"  width="854" height="480" :src= "embedurl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <youtube-media :video-id="videoId"></youtube-media>
               </div>
               <textarea v-model = "yturl"></textarea>
               <button type=“submit” @click="getVideoID">change</button>
