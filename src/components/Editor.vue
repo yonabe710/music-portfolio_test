@@ -65,6 +65,7 @@
                 <iframe id = "player"  width="854" height="480" :src= "embedurl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
               <textarea v-model = "yturl"></textarea>
+              <button type=“submit” @click= "changeEmbedurl">change</button>
               <button type=“submit” onclick="location.href='https://yonabe.netlify.com/#/mypage'">save</button>
             </article>
 
@@ -111,12 +112,17 @@
 
 <script>
 export default {
-  data: function () {
+  data () {
     return {
-      yturl: 'https://www.youtube.com/watch?v=jis7E_mbwPw&list=PLjUYRJfqz5WsaAcHvdt6Qv5gaERy75fej',
-      parser: new URL(yturl),
-      vid: parser.searchParams.get('v'),
-      embedurl: `https://www.youtube.com/embed/${this.vid}`
+      yturl: 'https://www.youtube.com/watch?v=r-9fiNDU-Iw',
+      embedurl: 'https://www.youtube.com/embed/r-9fiNDU-Iw'
+    }
+  },
+  methods: {
+    changeEmbedurl () {
+      var parser = new URL(this.yturl)
+      var vid = parser.searchParams.get('v')
+      this.embedurl = `https://www.youtube.com/embed/${vid}`
     }
   }
 }
