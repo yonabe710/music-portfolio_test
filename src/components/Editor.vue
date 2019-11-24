@@ -62,7 +62,7 @@
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
               <div class = "movie-wrap">
-                <youtube :video-id="videoId" player-width="845" player-height="100%"></youtube>
+                <iframe id = "player"  width="854" height="480" :src="`https://youtube.com/embed/${videoID}`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
               <textarea v-model = "yturl"></textarea>
               <button type=“submit” @click="getVideoID">change</button>
@@ -115,12 +115,12 @@ export default {
   data: function () {
     return {
       yturl: 'https://www.youtube.com/watch?v=jis7E_mbwPw&list=PLjUYRJfqz5WsaAcHvdt6Qv5gaERy75fej',
-      videoId: ''
+      videoID: ''
     }
   },
   methods: {
     getVideoID () {
-      this.videoId = this.$youtube.getIdFromURL(this.yturl)
+      this.videoID = this.$youtube.getIdFromURL(this.yturl)
     }
   }
 }
