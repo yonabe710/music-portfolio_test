@@ -111,16 +111,12 @@
 
 <script>
 export default {
-  data () {
+  data: function () {
     return {
       yturl: 'https://www.youtube.com/watch?v=jis7E_mbwPw&list=PLjUYRJfqz5WsaAcHvdt6Qv5gaERy75fej',
-      vid: this.parser.searchParams.get('v'),
+      parser: new URL(yturl),
+      vid: parser.searchParams.get('v'),
       embedurl: `https://www.youtube.com/embed/${this.vid}`
-    }
-  },
-  methods: {
-    parser: function () {
-      this.vid = this.yturl
     }
   }
 }
