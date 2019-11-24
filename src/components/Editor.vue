@@ -114,7 +114,7 @@
 export default {
   data: function () {
     return {
-      yturl: 'https://www.youtube.com/watch?v=r-9fiNDU-Iw',
+      yturl: 'https://www.youtube.com/watch?v=jis7E_mbwPw&list=PLjUYRJfqz5WsaAcHvdt6Qv5gaERy75fej',
       videoId: 'r-9fiNDU-Iw'
     }
   },
@@ -222,7 +222,7 @@ font-size:26px;
   height: 0;
   overflow: hidden;
 }
-.movie-wrap iframe {
+.movie-wrap youtu {
   position: absolute;
   top: 0;
   left: 20px;
