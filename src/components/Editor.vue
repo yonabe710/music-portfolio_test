@@ -27,10 +27,10 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <a href="https://yonabe.netlify.com/#/signup" class="button is-primary">
+                    <a href="https://music-portfolio.netlify.com/#/signup" class="button is-primary">
                         <strong>Sign up</strong>
                     </a>
-                    <a href="https://yonabe.netlify.com/#/signin" class="button is-light">
+                    <a href="https://music-portfolio.netlify.com/#/signin" class="button is-light">
                         Sign in
                     </a>
                 </div>
@@ -66,7 +66,7 @@
               </div>
               <textarea v-model = "yturl"></textarea>
               <button type=“submit” @click="getVideoID">change</button>
-              <button type=“submit” @click="location.href='https://yonabe.netlify.com/#/mypage';sendItem">save</button>
+              <button type=“submit” @click="location.href='https://music-portfolio.netlify.com/#/mypage';sendItem">save</button>
             </article>
 
             <article class="tile is-child notification is-light">
