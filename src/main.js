@@ -7,6 +7,7 @@ import 'buefy/dist/buefy.css'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
+import 'firebase/firestore'
 
 /* Fontawesomeのインストールここから */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -33,6 +34,7 @@ const config = {
 }
 firebase.initializeApp(config)
 
+export default firebase
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

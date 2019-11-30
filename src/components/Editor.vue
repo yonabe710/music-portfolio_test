@@ -62,11 +62,11 @@
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
               <div class = "movie-wrap">
-                <iframe id = "player"  width="854" height="480" :src="`https://youtube.com/embed/${videoID}`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe id = "player"  width="854" height="400" :src="`https://youtube.com/embed/${videoID}`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
               <textarea v-model = "yturl"></textarea>
               <button type=“submit” @click="getVideoID">change</button>
-              <button type=“submit” onclick="location.href='https://yonabe.netlify.com/#/mypage'">save</button>
+              <button type=“submit” @click="location.href='https://yonabe.netlify.com/#/mypage';sendItem">save</button>
             </article>
 
             <article class="tile is-child notification is-light">
@@ -111,6 +111,9 @@
 </template>
 
 <script>
+/* eslint-disable no-new */
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 export default {
   data: function () {
     return {
@@ -121,6 +124,21 @@ export default {
   methods: {
     getVideoID () {
       this.videoID = this.$youtube.getIdFromURL(this.yturl)
+    },
+    sendItem () {
+      const colref = firebase.firestore().collection('formcontent') // "formcontent"という名前のコレクションへの参照を作成
+      // 保存用JSONデータを作成
+      const videoURL = {
+        videoID: `https://youtube.com/embed/${this.videoID}`
+      }
+      // addの引数に保存したいデータを渡す
+      colref.add(videoURL).then(function (docRef) {
+        // 正常にデータ保存できた時の処理
+        console.log('Document written with ID: ', docRef.id)
+      }).catch(function (error) {
+        // エラー発生時の処理
+        console.error('Error adding document: ', error)
+      })
     }
   }
 }
