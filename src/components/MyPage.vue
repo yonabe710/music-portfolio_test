@@ -27,10 +27,10 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <a href="https://yonabe.netlify.com/#/signup" class="button is-primary">
+                    <a href="https://music-portfolio.netlify.com/#/signup" class="button is-primary">
                         <strong>Sign up</strong>
                     </a>
-                    <a href="https://yonabe.netlify.com/#/signin" class="button is-light">
+                    <a href="https://music-portfolio.netlify.com/#/signin" class="button is-light">
                         Sign in
                     </a>
                 </div>
@@ -66,7 +66,7 @@
                   <iframe width="854" height="480" src="https://www.youtube.com/embed/AygQwF5wfVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
-              <button type=“button” onclick="location.href='https://yonabe.netlify.com/#/editor'">edit</button>
+              <button type=“button” onclick="location.href='https://music-portfolio.netlify.com/#/editor'">edit</button>
             </article>
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>

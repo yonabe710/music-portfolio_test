@@ -27,10 +27,10 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <a href="https://yonabe.netlify.com/#/signup" class="button is-primary">
+                    <a href="https://music-portfolio.netlify.com/#/signup" class="button is-primary">
                         <strong>Sign up</strong>
                     </a>
-                    <a href="https://yonabe.netlify.com/#/signin" class="button is-light">
+                    <a href="https://music-portfolio.netlify.com/#/signin" class="button is-light">
                         Sign in
                     </a>
                 </div>
