@@ -66,7 +66,7 @@
               </div>
               <textarea v-model = "yturl"></textarea>
               <button type=“submit” @click="getVideoID">change</button>
-              <button type=“submit” @click="location.href='https://music-portfolio.netlify.com/#/mypage';sendItem">save</button>
+              <button type=“submit” onclick="location.href='https://music-portfolio.netlify.com/#/mypage';sendItem">save</button>
             </article>
 
             <article class="tile is-child notification is-light">
@@ -110,10 +110,11 @@
   </div>
 </template>
 
+<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-firestore.js"></script>
+
 <script>
 /* eslint-disable no-new */
-import firebase from 'firebase/app'
-import 'firebase/firestore'
 export default {
   data: function () {
     return {

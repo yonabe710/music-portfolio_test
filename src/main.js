@@ -7,7 +7,6 @@ import 'buefy/dist/buefy.css'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
-import 'firebase/firestore'
 
 /* Fontawesomeのインストールここから */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -33,6 +32,19 @@ const config = {
   appId: '1:560627509501:web:792c6376a80cac95a4f694'
 }
 firebase.initializeApp(config)
+
+var db = firebase.firestore()
+db.collection('users').add({
+  first: 'Adasas',
+  last: 'Lovelace',
+  born: 1815
+})
+  .then(function (docRef) {
+    console.log('Document written with ID: ', docRef.id)
+  })
+  .catch(function (error) {
+    console.error('Error adding document: ', error)
+  })
 
 export default firebase
 /* eslint-disable no-new */
