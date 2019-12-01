@@ -66,7 +66,7 @@
               </div>
               <textarea v-model = "yturl"></textarea>
               <button type=“submit” @click="getVideoID">change</button>
-              <button type=“submit” onclick="location.href='https://music-portfolio.netlify.com/#/mypage';sendItem">save</button>
+              <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
             </article>
 
             <article class="tile is-child notification is-light">
@@ -110,10 +110,12 @@
   </div>
 </template>
 
+<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-firestore.js"></script>
+
 <script>
+import firebase from 'firebase'
 /* eslint-disable no-new */
-import firebase from 'firebase/app'
-import 'firebase/firestore'
 export default {
   data: function () {
     return {
@@ -126,19 +128,30 @@ export default {
       this.videoID = this.$youtube.getIdFromURL(this.yturl)
     },
     sendItem () {
-      const colref = firebase.firestore().collection('formcontent') // "formcontent"という名前のコレクションへの参照を作成
-      // 保存用JSONデータを作成
-      const videoURL = {
-        videoID: `https://youtube.com/embed/${this.videoID}`
-      }
-      // addの引数に保存したいデータを渡す
-      colref.add(videoURL).then(function (docRef) {
-        // 正常にデータ保存できた時の処理
-        console.log('Document written with ID: ', docRef.id)
-      }).catch(function (error) {
-        // エラー発生時の処理
-        console.error('Error adding document: ', error)
+      var db = firebase.firestore()
+      db.collection('formcontent').add({
+        formcontent: `https://youtube.com/embed/${this.videoID}`
       })
+        .then(function (docRef) {
+          console.log('Document written with ID: ', docRef.id)
+        })
+        .catch(function (error) {
+          console.error('Error adding document: ', error)
+        })
+      // const colref = firebase.firestore().collection("formcontent"); // "formcontent"という名前のコレクションへの参照を作成
+      // const saveData = {
+      //   videoID: `https://youtube.com/embed/${this.videoID}`
+      // }
+      // // addの引数に保存したいデータを渡す
+      // colref.add(saveData).then(function (docRef) {
+      // // 正常にデータ保存できた時の処理
+      //   console.log('Document written with ID: ', docRef.id)
+      // })
+      // .catch(function (error) {
+      //   // エラー発生時の処理
+      //   console.error('Error adding document: ', error)
+      // })
+
     }
   }
 }
