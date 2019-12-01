@@ -22,7 +22,7 @@ Vue.config.productionTip = false
 Vue.use(Buefy)
 Vue.use(VueYouTubeEmbed)
 
-const config = {
+const firebaseConfig = {
   apiKey: 'AIzaSyAnU04He62KPgpw2dprE-qzrOwwaMb2E1A',
   authDomain: 'music-portfolio-a9bd8.firebaseapp.com',
   databaseURL: 'https://music-portfolio-a9bd8.firebaseio.com',
@@ -31,21 +31,7 @@ const config = {
   messagingSenderId: '560627509501',
   appId: '1:560627509501:web:792c6376a80cac95a4f694'
 }
-firebase.initializeApp(config)
-
-var db = firebase.firestore()
-db.collection('users').add({
-  first: 'Adasas',
-  last: 'Lovelace',
-  born: 1815
-})
-  .then(function (docRef) {
-    console.log('Document written with ID: ', docRef.id)
-  })
-  .catch(function (error) {
-    console.error('Error adding document: ', error)
-  })
-
+firebase.initializeApp(firebaseConfig)
 export default firebase
 /* eslint-disable no-new */
 new Vue({
