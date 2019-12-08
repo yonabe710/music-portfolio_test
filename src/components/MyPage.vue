@@ -113,17 +113,21 @@
 import firebase from 'firebase'
 
 export default {
-  name: 'MyPage',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      name: firebase.auth().currentUser.email
+      videoID : 
     }
   },
   methods: {
-    signOut: function () {
-      firebase.auth().signOut().then(() => {
-        this.$router.push('/signin')
+    getItem () {
+      var db = firebase.firestore()
+      db.collection("formcontent").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(doc.data())
+        })
+      })
+      .catch(function(error) {
+        console.log("Error getting documents: ", error);
       })
     }
   }
