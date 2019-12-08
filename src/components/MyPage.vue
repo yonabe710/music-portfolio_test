@@ -63,7 +63,7 @@
               <p class="title">YouTube</p>
               <div class="content">
                 <div class="movie-wrap">
-                  <iframe width="854" height="480" src="https://www.youtube.com/embed/AygQwF5wfVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe width="854" height="480" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
               <button type=“button” onclick="location.href='https://music-portfolio.netlify.com/#/editor'">edit</button>
@@ -115,21 +115,24 @@ import firebase from 'firebase'
 export default {
   data () {
     return {
-      videoID : 
+      videoID: ''
     }
   },
-  methods: {
-    getItem () {
-      var db = firebase.firestore()
-      db.collection("formcontent").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            console.log(doc.data())
-        })
-      })
-      .catch(function(error) {
-        console.log("Error getting documents: ", error);
-      })
-    }
+  created () {
+    let self = this
+    var db = firebase.firestore()
+    var docRef = db.collection('formcontent').doc('c0hGKsX1vTXJfgNgCL65')
+    docRef.get().then(function (doc) {
+      if (doc.exists) {
+        console.log('Document data:', doc.data().formcontent)
+        self.videoID = doc.data().formcontent
+      } else {
+      // doc.data() will be undefined in this case
+        console.log('No such document!')
+      }
+    }).catch(function (error) {
+      console.log('Error getting document:', error)
+    })
   }
 }
 </script>
