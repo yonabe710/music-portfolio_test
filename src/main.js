@@ -6,7 +6,8 @@ import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import App from './App'
 import router from './router'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 
 /* Fontawesomeのインストールここから */
 import { library } from '@fortawesome/fontawesome-svg-core'

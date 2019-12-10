@@ -110,17 +110,16 @@
   </div>
 </template>
 
-<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-firestore.js"></script>
-
 <script>
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 /* eslint-disable no-new */
 export default {
   data: function () {
     return {
       yturl: 'https://www.youtube.com/watch?v=jis7E_mbwPw&list=PLjUYRJfqz5WsaAcHvdt6Qv5gaERy75fej',
-      videoID: ''
+      videoID: '',
+      userid: firebase.auth().currentUser.uid
     }
   },
   methods: {
@@ -129,14 +128,14 @@ export default {
     },
     sendItem () {
       var db = firebase.firestore()
-      db.collection('formcontent').add({
-        formcontent: `https://youtube.com/embed/${this.videoID}`
+      db.collection('uid').doc(this.userid).set({
+        url: `https://youtube.com/embed/${this.videoID}`
       })
-        .then(function (docRef) {
-          console.log('Document written with ID: ', docRef.id)
+        .then(function () {
+          console.log('Document successfully written!')
         })
         .catch(function (error) {
-          console.error('Error adding document: ', error)
+          console.error('Error writing document: ', error)
         })
       // const colref = firebase.firestore().collection("formcontent"); // "formcontent"という名前のコレクションへの参照を作成
       // const saveData = {
@@ -151,7 +150,6 @@ export default {
       //   // エラー発生時の処理
       //   console.error('Error adding document: ', error)
       // })
-
     }
   }
 }
