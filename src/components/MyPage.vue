@@ -115,17 +115,18 @@ import firebase from 'firebase'
 export default {
   data () {
     return {
-      videoID: ''
+      videoID: '',
+      userid: firebase.auth().currentUser.uid
     }
   },
   created () {
     let self = this
     var db = firebase.firestore()
-    var docRef = db.collection('formcontent').doc('c0hGKsX1vTXJfgNgCL65')
+    var docRef = db.collection('uid').doc('userid')
     docRef.get().then(function (doc) {
       if (doc.exists) {
-        console.log('Document data:', doc.data().formcontent)
-        self.videoID = doc.data().formcontent
+        console.log('Document data:', doc.data().uid)
+        self.videoID = doc.data().uid
       } else {
       // doc.data() will be undefined in this case
         console.log('No such document!')
