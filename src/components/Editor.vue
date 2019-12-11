@@ -117,7 +117,7 @@ import 'firebase/auth'
 export default {
   data: function () {
     return {
-      yturl: 'https://www.youtube.com/watch?v=jis7E_mbwPw&list=PLjUYRJfqz5WsaAcHvdt6Qv5gaERy75fej',
+      yturl: 'https://www.youtube.com/watch?v=r7vDdgwQVj4',
       videoID: '',
       userid: firebase.auth().currentUser.uid
     }
