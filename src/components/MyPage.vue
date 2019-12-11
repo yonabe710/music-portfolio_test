@@ -122,11 +122,11 @@ export default {
   created () {
     let self = this
     var db = firebase.firestore()
-    var docRef = db.collection('uid').doc('userid')
+    var docRef = db.collection('uid').doc(this.userid)
     docRef.get().then(function (doc) {
       if (doc.exists) {
-        console.log('Document data:', doc.data().uid)
-        self.videoID = doc.data().uid
+        console.log('Document data:', doc.data().url)
+        self.videoID = doc.data().url
       } else {
       // doc.data() will be undefined in this case
         console.log('No such document!')
