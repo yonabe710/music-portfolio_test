@@ -63,7 +63,7 @@
               <p class="title">YouTube</p>
               <div class="content">
                 <div class="movie-wrap">
-                  <iframe width="854" height="480" src="https://www.youtube.com/embed/AygQwF5wfVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe width="854" height="480" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
             </article>
@@ -109,22 +109,31 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 
 export default {
-  name: 'MyPage',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      name: firebase.auth().currentUser.email
+      videoID: '',
+      userid: firebase.auth().currentUser.uid
     }
   },
-  methods: {
-    signOut: function () {
-      firebase.auth().signOut().then(() => {
-        this.$router.push('/signin')
-      })
-    }
+  created () {
+    let self = this
+    var db = firebase.firestore()
+    var docRef = db.collection('uid').doc(this.userid)
+    docRef.get().then(function (doc) {
+      if (doc.exists) {
+        console.log('Document data:', doc.data().url)
+        self.videoID = doc.data().url
+      } else {
+      // doc.data() will be undefined in this case
+        console.log('No such document!')
+      }
+    }).catch(function (error) {
+      console.log('Error getting document:', error)
+    })
   }
 }
 </script>
