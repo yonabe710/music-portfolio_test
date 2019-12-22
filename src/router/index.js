@@ -5,16 +5,14 @@ import Main from '@/components/Main'
 import Signup from '@/components/Signup'
 import Signin from '@/components/Signin'
 import Editor from '@/components/Editor'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 
 Vue.use(Router)
 
+// let userid = firebase.auth().currentUser.uid
 let router = new Router({
   routes: [
-    {
-      path: '*',
-      redirect: 'signin'
-    },
     {
       path: '/',
       name: 'Main',
@@ -22,9 +20,21 @@ let router = new Router({
       meta: { requiresAuth: true }
     },
     {
-      path: '/mypage',
+      path: '/:firebase.auth().currentUser.uid',
+      name: 'Main',
+      component: Main,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/mypage/',
       name: 'MyPage',
       component: MyPage
+    },
+    {
+      path: '/mypage/:firebase.auth().currentUser.uid',
+      name: 'MyPage',
+      component: MyPage,
+      meta: { requiresAuth: true }
     },
     {
       path: '/signup',
@@ -40,6 +50,12 @@ let router = new Router({
       path: '/editor',
       name: 'Editor',
       component: Editor
+    },
+    {
+      path: '/editor/:firebase.auth().currentUser.uid',
+      name: 'Editor',
+      component: Editor,
+      meta: { requiresAuth: true }
     }
   ]
 })
