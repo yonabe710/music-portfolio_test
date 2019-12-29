@@ -16,14 +16,13 @@ let router = new Router({
     {
       path: '/',
       name: 'Main',
-      component: Main,
-      meta: { requiresAuth: true }
+      component: Main
     },
     {
       path: '/:firebase.auth().currentUser.uid',
       name: 'Main',
-      component: Main,
-      meta: { requiresAuth: true }
+      component: Main
+      // meta: { requiresAuth: true }
     },
     {
       path: '/mypage/',
@@ -33,8 +32,7 @@ let router = new Router({
     {
       path: '/mypage/:firebase.auth().currentUser.uid',
       name: 'MyPage',
-      component: MyPage,
-      meta: { requiresAuth: true }
+      component: MyPage
     },
     {
       path: '/signup',
@@ -54,8 +52,7 @@ let router = new Router({
     {
       path: '/editor/:firebase.auth().currentUser.uid',
       name: 'Editor',
-      component: Editor,
-      meta: { requiresAuth: true }
+      component: Editor
     }
   ]
 })
