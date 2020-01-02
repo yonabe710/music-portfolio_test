@@ -27,6 +27,9 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
+                    <router-link to="/editor" class="button is-primary">
+                      <strong>Editor</strong>
+                    </router-link>
                     <router-link to="/signin" class="button is-light">
                       <strong>Sign in</strong>
                     </router-link>
