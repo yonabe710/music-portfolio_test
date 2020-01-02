@@ -63,7 +63,7 @@
                   <iframe width="854" height="480" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
-              <button type=“button” onclick="location.href='https://music-portfolio.netlify.com/#/editor'">edit</button>
+              <router-link to='/editor'><button type=“button”>edit</button></router-link>
             </article>
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
