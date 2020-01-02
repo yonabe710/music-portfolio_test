@@ -17,6 +17,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.7",
     "buefy": "^0.8.4",
     "firebase": "^6.6.1",
+    "firebaseui": "^4.4.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-youtube-embed": "^2.2.2"

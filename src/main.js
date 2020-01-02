@@ -33,6 +33,7 @@ const firebaseConfig = {
   appId: '1:560627509501:web:792c6376a80cac95a4f694'
 }
 firebase.initializeApp(firebaseConfig)
+
 export default firebase
 /* eslint-disable no-new */
 new Vue({

@@ -1,17 +1,18 @@
 <template>
   <div class="signin">
     <h2>Sign in</h2>
-    <input type="text" placeholder="Username" v-model="username">
-    <input type="password" placeholder="Password" v-model="password">
-    <button @click="signIn">Signin</button>
     <p>You don't have an account?
       <router-link to="/signup">create account now!!</router-link>
     </p>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase'
+import * as firebaseui from 'firebaseui'
+import 'firebaseui/dist/firebaseui.css'
 
 export default {
   name: 'Signin',
@@ -21,18 +22,33 @@ export default {
       password: ''
     }
   },
-  methods: {
-    signIn: function () {
-      firebase.auth().signInWithEmailAndPassword(this.username, this.password).then(
-        user => {
-          alert('Success!')
-          this.$router.push('/')
+  mounted () {
+    const ui = new firebaseui.auth.AuthUI(firebase.auth())
+    const uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+        // User successfully signed in.
+        // Return type determines whether we continue the redirect automatically
+        // or whether we leave that to developer to handle.
+          return true
         },
-        err => {
-          alert(err.message)
+        uiShown: function () {
+          // The widget is rendered.
+          // Hide the loader.
+          document.getElementById('loader').style.display = 'none'
         }
-      )
+      },
+      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+      signInFlow: 'popup',
+      signInSuccessUrl: '/', // Sign in後の遷移先
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.TwitterAuthProvider.PROVIDER_ID
+      ],
+      // Terms of service url.
+      tosUrl: ''
     }
+    ui.start('#firebaseui-auth-container', uiConfig)
   }
 }
 </script>
