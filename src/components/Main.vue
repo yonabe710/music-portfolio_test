@@ -27,12 +27,9 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <a href="https://music-portfolio.netlify.com/#/signup" class="button is-primary">
-                        <strong>Sign up</strong>
-                    </a>
-                    <a href="https://music-portfolio.netlify.com/#/signin" class="button is-light">
-                        Sign in
-                    </a>
+                    <router-link to="/signin" class="button is-light">
+                      <strong>Sign in</strong>
+                    </router-link>
                 </div>
             </b-navbar-item>
         </template>

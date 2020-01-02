@@ -10,7 +10,6 @@ import 'firebase/auth'
 
 Vue.use(Router)
 
-// let userid = firebase.auth().currentUser.uid
 let router = new Router({
   routes: [
     {
@@ -19,18 +18,12 @@ let router = new Router({
       component: Main
     },
     {
-      path: '/:firebase.auth().currentUser.uid',
-      name: 'Main',
-      component: Main
-      // meta: { requiresAuth: true }
-    },
-    {
       path: '/mypage/',
       name: 'MyPage',
       component: MyPage
     },
     {
-      path: '/mypage/:firebase.auth().currentUser.uid',
+      path: '/mypage/:twitterid',
       name: 'MyPage',
       component: MyPage
     },
@@ -50,7 +43,13 @@ let router = new Router({
       component: Editor
     },
     {
-      path: '/editor/:firebase.auth().currentUser.uid',
+      path: '/:twitterid',
+      name: 'Main',
+      component: Main,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/editor/:twitterid',
       name: 'Editor',
       component: Editor
     }
