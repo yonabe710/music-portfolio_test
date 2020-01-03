@@ -71,7 +71,8 @@
 
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
-              <div class="content">
+              <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
+                <Tweet id="1096038493417959424"></Tweet>
                 <!-- Content -->
               </div>
             </article>
@@ -113,6 +114,7 @@
 <script>
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import {Tweet} from 'vue-tweet-embed'
 /* eslint-disable no-new */
 export default {
   data: function () {
@@ -121,6 +123,10 @@ export default {
       videoID: '',
       userid: firebase.auth().currentUser.uid
     }
+  },
+  components: {
+
+    Tweet: Tweet
   },
   methods: {
     getVideoID () {
