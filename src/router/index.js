@@ -4,7 +4,8 @@ import MyPage from '@/components/MyPage'
 import Main from '@/components/Main'
 import Signup from '@/components/Signup'
 import Signin from '@/components/Signin'
-import Editor from '@/components/Editor'
+import ytEditor from '@/components/ytEditor'
+import twEditor from '@/components/twEditor'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
@@ -38,9 +39,15 @@ let router = new Router({
       component: Signin
     },
     {
-      path: '/editor',
-      name: 'Editor',
-      component: Editor,
+      path: '/yteditor',
+      name: 'ytEditor',
+      component: ytEditor,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/tweditor',
+      name: 'twEditor',
+      component: twEditor,
       meta: { requiresAuth: true }
     },
     {
@@ -50,9 +57,14 @@ let router = new Router({
       meta: { requiresAuth: true }
     },
     {
-      path: '/editor/:twitterid',
-      name: 'Editor',
-      component: Editor
+      path: '/yteditor/:twitterid',
+      name: 'ytEditor',
+      component: ytEditor
+    },
+    {
+      path: '/tweditor/:twitterid',
+      name: 'twEditor',
+      component: twEditor
     }
   ]
 })

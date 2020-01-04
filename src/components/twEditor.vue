@@ -61,18 +61,21 @@
           <div class="tile is-parent is-vertical is-8">
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
-              <div class = "movie-wrap">
-                <iframe id = "player"  width="854" height="400" :src="`https://youtube.com/embed/${videoID}`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <!-- <div class = "movie-wrap"> -->
+                <!-- <iframe id = "player"  width="854" height="400" :src="`https://youtube.com/embed/${videoID}`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
               <textarea v-model = "yturl"></textarea>
               <button type=“submit” @click="getVideoID">change</button>
-              <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
+              <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link> -->
             </article>
 
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
               <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
-                <Tweet id="1096038493417959424"></Tweet>
+                <Tweet :id="tweetID" :key="tweetID"></Tweet>
+              <textarea v-model = "twurl"></textarea>
+              <button type=“submit” @click="getTweetID">change</button>
+              <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
                 <!-- Content -->
               </div>
             </article>
@@ -119,23 +122,40 @@ import {Tweet} from 'vue-tweet-embed'
 export default {
   data: function () {
     return {
-      yturl: 'https://www.youtube.com/watch?v=r7vDdgwQVj4',
-      videoID: '',
-      userid: firebase.auth().currentUser.uid
+      twurl: 'https://twitter.com/k_onshitsu/status/1096038493417959424',
+      tweetID: '1096038493417959424',
+      userid: firebase.auth().currentUser.uid,
+      slash: '/'
     }
   },
   components: {
-
     Tweet: Tweet
   },
+  //   computed: {
+  //     tweetID: () => {
+  //       return this.twurl.pathname.split(this.slash).pop()
+  //     }
+  //   },
   methods: {
-    getVideoID () {
-      this.videoID = this.$youtube.getIdFromURL(this.yturl)
+    getTweetID () {
+      var stringer = new URL(this.twurl)
+      console.log('#1', this)
+      console.log('#2', stringer)
+      console.log('#3', stringer.pathname)
+      console.log('#4', stringer.pathname.split(this.slash))
+      console.log('#5', stringer.pathname.split(this.slash).pop())
+      this.tweetID = stringer.pathname.split(this.slash).pop()
+      //   console.log('#1', this)
+      //   console.log('#2', this.twurl)
+      //   console.log('#3', this.twurl.toString.pathname)
+      //   console.log('#4', this.twurl.pathname.split(this.slash))
+      //   console.log('#5', this.twurl.pathname.split(this.slash).pop())
+      //   const tweetID = String(this.twurl).pathname.split(this.slash).pop()
     },
     sendItem () {
       var db = firebase.firestore()
       db.collection('uid').doc(this.userid).set({
-        url: `https://youtube.com/embed/${this.videoID}`
+        twid: `${this.tweetID}`
       })
         .then(function () {
           console.log('Document successfully written!')
@@ -143,19 +163,6 @@ export default {
         .catch(function (error) {
           console.error('Error writing document: ', error)
         })
-      // const colref = firebase.firestore().collection("formcontent"); // "formcontent"という名前のコレクションへの参照を作成
-      // const saveData = {
-      //   videoID: `https://youtube.com/embed/${this.videoID}`
-      // }
-      // // addの引数に保存したいデータを渡す
-      // colref.add(saveData).then(function (docRef) {
-      // // 正常にデータ保存できた時の処理
-      //   console.log('Document written with ID: ', docRef.id)
-      // })
-      // .catch(function (error) {
-      //   // エラー発生時の処理
-      //   console.error('Error adding document: ', error)
-      // })
     }
   }
 }
