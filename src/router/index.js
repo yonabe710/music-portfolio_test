@@ -16,12 +16,14 @@ let router = new Router({
     {
       path: '/',
       name: 'Main',
-      component: Main
+      component: Main,
+      meta: { requiresAuth: true }
     },
     {
       path: '/mypage/',
       name: 'MyPage',
-      component: MyPage
+      component: MyPage,
+      meta: { requiresAuth: true }
     },
     {
       path: '/mypage/:twitterid',
@@ -40,13 +42,13 @@ let router = new Router({
     },
     {
       path: '/yteditor',
-      name: 'ytEditor',
+      name: 'YtEditor',
       component: ytEditor,
       meta: { requiresAuth: true }
     },
     {
       path: '/tweditor',
-      name: 'twEditor',
+      name: 'TwEditor',
       component: twEditor,
       meta: { requiresAuth: true }
     },
@@ -58,12 +60,12 @@ let router = new Router({
     },
     {
       path: '/yteditor/:twitterid',
-      name: 'ytEditor',
+      name: 'YtEditor',
       component: ytEditor
     },
     {
       path: '/tweditor/:twitterid',
-      name: 'twEditor',
+      name: 'TwEditor',
       component: twEditor
     }
   ]

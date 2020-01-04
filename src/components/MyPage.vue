@@ -117,6 +117,7 @@ import 'firebase/auth'
 import {Tweet} from 'vue-tweet-embed'
 
 export default {
+  name: 'MyPage',
   data () {
     return {
       videoID: '',

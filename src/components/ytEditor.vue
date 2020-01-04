@@ -117,6 +117,7 @@ import 'firebase/auth'
 import {Tweet} from 'vue-tweet-embed'
 /* eslint-disable no-new */
 export default {
+  name: 'YtEditor',
   data: function () {
     return {
       yturl: 'https://www.youtube.com/watch?v=r7vDdgwQVj4',

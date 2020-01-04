@@ -27,8 +27,8 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <router-link to="/editor" class="button is-primary">
-                      <strong>Editor</strong>
+                    <router-link to="/mypage" class="button is-primary">
+                      <strong>Mypage</strong>
                     </router-link>
                     <router-link to="/signin" class="button is-light">
                       <strong>Sign in</strong>
@@ -69,8 +69,9 @@
             </article>
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
-              <div class="content">
-                <!-- Content -->
+              <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
+                    <!-- Content -->
+                <Tweet :id="tweetID" :key="tweetID"></Tweet>
               </div>
             </article>
           </div>
@@ -111,13 +112,19 @@
 <script>
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import {Tweet} from 'vue-tweet-embed'
 
 export default {
+  name: 'Main',
   data () {
     return {
       videoID: '',
+      tweetID: '',
       userid: firebase.auth().currentUser.uid
     }
+  },
+  components: {
+    Tweet: Tweet
   },
   created () {
     let self = this
@@ -125,8 +132,10 @@ export default {
     var docRef = db.collection('uid').doc(this.userid)
     docRef.get().then(function (doc) {
       if (doc.exists) {
-        console.log('Document data:', doc.data().url)
-        self.videoID = doc.data().url
+        console.log('Document data:', doc.data().yturl)
+        console.log('Document data:', doc.data().twid)
+        self.videoID = doc.data().yturl
+        self.tweetID = doc.data().twid
       } else {
       // doc.data() will be undefined in this case
         console.log('No such document!')
