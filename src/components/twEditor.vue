@@ -134,11 +134,11 @@ export default {
   methods: {
     getTweetID () {
       var stringer = new URL(this.twurl)
-      console.log('#1', this)
-      console.log('#2', stringer)
-      console.log('#3', stringer.pathname)
-      console.log('#4', stringer.pathname.split(this.slash))
-      console.log('#5', stringer.pathname.split(this.slash).pop())
+      //   console.log('#1', this)
+      //   console.log('#2', stringer)
+      //   console.log('#3', stringer.pathname)
+      //   console.log('#4', stringer.pathname.split(this.slash))
+      //   console.log('#5', stringer.pathname.split(this.slash).pop())
       this.tweetID = stringer.pathname.split(this.slash).pop()
     },
     sendItem () {

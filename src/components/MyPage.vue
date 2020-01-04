@@ -66,13 +66,15 @@
                   <iframe width="854" height="480" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
               </div>
-              <router-link to='/editor'><button type=“button”>edit</button></router-link>
+              <router-link to='/yteditor'><button type=“button”>edit</button></router-link>
             </article>
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
-              <div class="content">
                 <!-- Content -->
+              <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
+                <Tweet :id="tweetID" :key="tweetID"></Tweet>
               </div>
+              <router-link to='/tweditor'><button type=“button”>edit</button></router-link>
             </article>
           </div>
           <div class="tile is-parent">
@@ -112,13 +114,18 @@
 <script>
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import {Tweet} from 'vue-tweet-embed'
 
 export default {
   data () {
     return {
       videoID: '',
+      tweetID: '',
       userid: firebase.auth().currentUser.uid
     }
+  },
+  components: {
+    Tweet: Tweet
   },
   created () {
     let self = this
@@ -126,8 +133,10 @@ export default {
     var docRef = db.collection('uid').doc(this.userid)
     docRef.get().then(function (doc) {
       if (doc.exists) {
-        console.log('Document data:', doc.data().url)
-        self.videoID = doc.data().url
+        console.log('Document data:', doc.data().yturl)
+        console.log('Document data:', doc.data().twid)
+        self.videoID = doc.data().yturl
+        self.tweetID = doc.data().twid
       } else {
       // doc.data() will be undefined in this case
         console.log('No such document!')
