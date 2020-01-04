@@ -131,11 +131,6 @@ export default {
   components: {
     Tweet: Tweet
   },
-  //   computed: {
-  //     tweetID: () => {
-  //       return this.twurl.pathname.split(this.slash).pop()
-  //     }
-  //   },
   methods: {
     getTweetID () {
       var stringer = new URL(this.twurl)
@@ -145,18 +140,12 @@ export default {
       console.log('#4', stringer.pathname.split(this.slash))
       console.log('#5', stringer.pathname.split(this.slash).pop())
       this.tweetID = stringer.pathname.split(this.slash).pop()
-      //   console.log('#1', this)
-      //   console.log('#2', this.twurl)
-      //   console.log('#3', this.twurl.toString.pathname)
-      //   console.log('#4', this.twurl.pathname.split(this.slash))
-      //   console.log('#5', this.twurl.pathname.split(this.slash).pop())
-      //   const tweetID = String(this.twurl).pathname.split(this.slash).pop()
     },
     sendItem () {
       var db = firebase.firestore()
       db.collection('uid').doc(this.userid).set({
         twid: `${this.tweetID}`
-      })
+      }, {merge: true})
         .then(function () {
           console.log('Document successfully written!')
         })

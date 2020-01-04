@@ -135,7 +135,7 @@ export default {
       var db = firebase.firestore()
       db.collection('uid').doc(this.userid).set({
         yturl: `https://youtube.com/embed/${this.videoID}`
-      })
+      }, {merge: true})
         .then(function () {
           console.log('Document successfully written!')
         })
