@@ -123,8 +123,6 @@ export default {
   data: function () {
     return {
       scurl: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/666328004&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true',
-      scurl: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true',
-      
       soundID: '666328004',
       userid: firebase.auth().currentUser.uid,
       slash: '/',

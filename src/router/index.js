@@ -28,7 +28,7 @@ let router = new Router({
     },
     {
       path: '/mypage/:twitterid',
-      name: 'MyPage',
+      // name: 'MyPage',
       component: MyPage
     },
     {
@@ -61,23 +61,23 @@ let router = new Router({
     },
     {
       path: '/:twitterid',
-      name: 'Main',
+      // name: 'Main',
       component: Main,
       meta: { requiresAuth: true }
     },
     {
       path: '/yteditor/:twitterid',
-      name: 'YtEditor',
+      // name: 'YtEditor',
       component: ytEditor
     },
     {
       path: '/tweditor/:twitterid',
-      name: 'TwEditor',
+      // name: 'TwEditor',
       component: twEditor
     },
     {
       path: '/sceditor/:twitterid',
-      name: 'ScEditor',
+      // name: 'ScEditor',
       component: scEditor
     }
   ]
