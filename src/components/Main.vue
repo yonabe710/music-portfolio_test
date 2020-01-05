@@ -80,7 +80,7 @@
               <div class="content">
                 <p class="title">Sound sample</p>
                 <div class="soundcloud">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/666328004&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
@@ -120,6 +120,7 @@ export default {
     return {
       videoID: '',
       tweetID: '',
+      soundID: '',
       userid: firebase.auth().currentUser.uid
     }
   },
@@ -134,8 +135,10 @@ export default {
       if (doc.exists) {
         console.log('Document data:', doc.data().yturl)
         console.log('Document data:', doc.data().twid)
+        console.log('Document data:', doc.data().scid)
         self.videoID = doc.data().yturl
         self.tweetID = doc.data().twid
+        self.soundID = doc.data().scid
       } else {
       // doc.data() will be undefined in this case
         console.log('No such document!')
