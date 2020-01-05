@@ -6,6 +6,7 @@ import Signup from '@/components/Signup'
 import Signin from '@/components/Signin'
 import ytEditor from '@/components/ytEditor'
 import twEditor from '@/components/twEditor'
+import scEditor from '@/components/scEditor'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
@@ -53,6 +54,12 @@ let router = new Router({
       meta: { requiresAuth: true }
     },
     {
+      path: '/sceditor',
+      name: 'ScEditor',
+      component: scEditor,
+      meta: { requiresAuth: true }
+    },
+    {
       path: '/:twitterid',
       name: 'Main',
       component: Main,
@@ -67,6 +74,11 @@ let router = new Router({
       path: '/tweditor/:twitterid',
       name: 'TwEditor',
       component: twEditor
+    },
+    {
+      path: '/sceditor/:twitterid',
+      name: 'ScEditor',
+      component: scEditor
     }
   ]
 })

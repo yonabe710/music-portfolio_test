@@ -71,13 +71,12 @@
 
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
-              <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
+              <!-- <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
                 <Tweet :id="tweetID" :key="tweetID"></Tweet>
               <textarea v-model = "twurl"></textarea>
               <button type=“submit” @click="getTweetID">change</button>
               <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
-                <!-- Content -->
-              </div>
+              </div> -->
             </article>
           </div>
           <div class="tile is-parent">
@@ -85,13 +84,13 @@
               <div class="content">
                 <p class="title">Sound sample</p>
                 <div class="soundcloud">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/666328004&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
+                <textarea v-model = "scurl"></textarea>
+                <button type=“submit” @click="getSoundID">change</button>
+                <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                </div>
-                <div class="content">
-                  <!-- Content -->
                 </div>
               </div>
             </article>
@@ -120,32 +119,35 @@ import 'firebase/auth'
 import {Tweet} from 'vue-tweet-embed'
 /* eslint-disable no-new */
 export default {
-  name: 'TwEditor',
+  name: 'ScEditor',
   data: function () {
     return {
-      twurl: 'https://twitter.com/k_onshitsu/status/1096038493417959424',
-      tweetID: '1096038493417959424',
+      scurl: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/666328004&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true',
+      scurl: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true',
+      
+      soundID: '666328004',
       userid: firebase.auth().currentUser.uid,
-      slash: '/'
+      slash: '/',
+      and: '&'
     }
   },
   components: {
     Tweet: Tweet
   },
   methods: {
-    getTweetID () {
-      var stringer = new URL(this.twurl)
-      //   console.log('#1', this)
-      //   console.log('#2', stringer)
-      //   console.log('#3', stringer.pathname)
-      //   console.log('#4', stringer.pathname.split(this.slash))
-      //   console.log('#5', stringer.pathname.split(this.slash).pop())
-      this.tweetID = stringer.pathname.split(this.slash).pop()
+    getSoundID () {
+      var stringer = new URL(this.scurl)
+      console.log('#1', this)
+      console.log('#2', stringer)
+      console.log('#3', stringer.searchParams.get('url'))
+      console.log('#4', stringer.searchParams.get('url').split(this.slash))
+      console.log('#5', stringer.searchParams.get('url').split(this.slash).pop())
+      this.soundID = stringer.searchParams.get('url').split(this.slash).pop()
     },
     sendItem () {
       var db = firebase.firestore()
       db.collection('uid').doc(this.userid).set({
-        twid: `${this.tweetID}`
+        scid: `${this.soundID}`
       }, {merge: true})
         .then(function () {
           console.log('Document successfully written!')
