@@ -27,8 +27,8 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <router-link to="/mypage" class="button is-primary">
-                      <strong>Mypage</strong>
+                    <router-link to="/" class="button is-primary">
+                      <strong>Home</strong>
                     </router-link>
                     <router-link to="/signin" class="button is-light">
                       <strong>Sign in</strong>
@@ -48,6 +48,8 @@
             </h1>
             <h2 class="subtitle">
               {{profile}}
+              <textarea v-model = "profile"></textarea>
+              <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link>
             </h2>
             <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
@@ -61,17 +63,19 @@
           <div class="tile is-parent is-vertical is-8">
             <article class="tile is-child notification is-light">
               <p class="title">YouTube</p>
-              <div class="content">
-                <div class="movie-wrap">
-                  <iframe width="854" height="480" :src="this.videoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+              <div class = "movie-wrap">
+                <iframe id = "player"  width="854" height="400" :src="`https://youtube.com/embed/${videoID}`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
+              <!-- <textarea v-model = "yturl"></textarea>
+              <button type=“submit” @click="getVideoID">change</button>
+              <router-link to="/mypage"><button type=“submit” @click="sendItem" >save</button></router-link> -->
             </article>
+
             <article class="tile is-child notification is-light">
               <p class="title">Twitter</p>
               <div class="content" style="width:832px;" :options="{ cards: 'hidden' }">
-                    <!-- Content -->
-                <Tweet :id="tweetID" :key="tweetID"></Tweet>
+                <Tweet id="1096038493417959424"></Tweet>
+                <!-- Content -->
               </div>
             </article>
           </div>
@@ -80,7 +84,7 @@
               <div class="content">
                 <p class="title">Sound sample</p>
                 <div class="soundcloud">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" :src="`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${this.soundID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`"></iframe>
+                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/666328004&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633309999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568198284&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/679809245&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
@@ -113,42 +117,44 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import {Tweet} from 'vue-tweet-embed'
-
+/* eslint-disable no-new */
 export default {
-  name: 'Main',
-  data () {
+  name: 'PfEditor',
+  data: function () {
     return {
       profile: '',
-      videoID: '',
-      tweetID: '',
-      soundID: '',
       userid: firebase.auth().currentUser.uid
     }
   },
   components: {
     Tweet: Tweet
   },
-  created () {
-    let self = this
-    var db = firebase.firestore()
-    var docRef = db.collection('uid').doc(this.userid)
-    docRef.get().then(function (doc) {
-      if (doc.exists) {
-        console.log('Document data:', doc.data().pfcontent)
-        console.log('Document data:', doc.data().yturl)
-        console.log('Document data:', doc.data().twid)
-        console.log('Document data:', doc.data().scid)
-        self.profile = doc.data().pfcontent
-        self.videoID = doc.data().yturl
-        self.tweetID = doc.data().twid
-        self.soundID = doc.data().scid
-      } else {
-      // doc.data() will be undefined in this case
-        console.log('No such document!')
-      }
-    }).catch(function (error) {
-      console.log('Error getting document:', error)
-    })
+  methods: {
+    sendItem () {
+      var db = firebase.firestore()
+      db.collection('uid').doc(this.userid).set({
+        pfcontent: `${this.profile}`
+      }, {merge: true})
+        .then(function () {
+          console.log('Document successfully written!')
+        })
+        .catch(function (error) {
+          console.error('Error writing document: ', error)
+        })
+      // const colref = firebase.firestore().collection("formcontent"); // "formcontent"という名前のコレクションへの参照を作成
+      // const saveData = {
+      //   videoID: `https://youtube.com/embed/${this.videoID}`
+      // }
+      // // addの引数に保存したいデータを渡す
+      // colref.add(saveData).then(function (docRef) {
+      // // 正常にデータ保存できた時の処理
+      //   console.log('Document written with ID: ', docRef.id)
+      // })
+      // .catch(function (error) {
+      //   // エラー発生時の処理
+      //   console.error('Error adding document: ', error)
+      // })
+    }
   }
 }
 </script>
@@ -242,10 +248,11 @@ background:linear-gradient(135deg, #f5515f 0%,#c9293c 100%);
 font-size:26px;
 }
 /* -----------------------フォローボタンのstylesheet----------------------------- */
+
 .movie-wrap {
   position: relative;
   padding-bottom: 56.25%; /*アスペクト比 16:9の場合の縦幅*/
-  height: 0;
+  /* height: 0; */
   overflow: hidden;
 }
 .movie-wrap iframe {
@@ -253,7 +260,7 @@ font-size:26px;
   top: 0;
   left: 20px;
   width: 100%;
-  height: 100%;
+  height: 1000px  !important;
 }
 
 .soundcloud{
@@ -265,5 +272,4 @@ font-size:26px;
 .tile.is-child{
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
 }
-
 </style>

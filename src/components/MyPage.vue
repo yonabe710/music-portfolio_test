@@ -47,7 +47,7 @@
               Profile
             </h1>
             <h2 class="subtitle">
-              幼少期より14年間ピアノを嗜む。大学からバンドサークルにてボーカル・ギターを担当。基本的にコピーバンド専門で、作曲もたまに行っている。楽器はドラム以外全て演奏可能。
+              {{profile}}
             </h2>
             <ul class="follow">
               <li><a href="https://twitter.com/k_onshitsu" class="flowbtn7 fl_tw7"><i><font-awesome-icon :icon = "['fab','twitter']"></font-awesome-icon></i></a></li>
@@ -120,6 +120,7 @@ export default {
   name: 'MyPage',
   data () {
     return {
+      profile: '',
       videoID: '',
       tweetID: '',
       soundID: '',
@@ -135,9 +136,11 @@ export default {
     var docRef = db.collection('uid').doc(this.userid)
     docRef.get().then(function (doc) {
       if (doc.exists) {
+        console.log('Document data:', doc.data().pfcontent)
         console.log('Document data:', doc.data().yturl)
         console.log('Document data:', doc.data().twid)
         console.log('Document data:', doc.data().scid)
+        self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
         self.tweetID = doc.data().twid
         self.soundID = doc.data().scid
