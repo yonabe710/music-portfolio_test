@@ -44,6 +44,13 @@ export default {
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.TwitterAuthProvider.PROVIDER_ID
+          .then((userCredential) => {
+          // Get the Twitter screen name.
+            console.log(userCredential.additionalUserInfo.username);
+          })
+          .catch((error) => {
+          // An error occurred.
+          })
       ],
       // Terms of service url.
       tosUrl: ''
