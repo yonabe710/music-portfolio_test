@@ -125,6 +125,7 @@ export default {
     return {
       twurl: 'https://twitter.com/k_onshitsu/status/1096038493417959424',
       tweetID: '1096038493417959424',
+      username: firebase.auth().UserCredential.additionalUserInfo.username,
       userid: firebase.auth().currentUser.uid,
       slash: '/'
     }
@@ -144,6 +145,15 @@ export default {
     },
     sendItem () {
       var db = firebase.firestore()
+      // db.collection('uid').doc(this.userid).set({
+      //   twusername: `${this.username}`
+      // }, {merge: true})
+      //   .then(function () {
+      //     console.log('Document successfully written!')
+      //   })
+      //   .catch(function (error) {
+      //     console.error('Error writing document: ', error)
+      //   })
       db.collection('uid').doc(this.userid).set({
         twid: `${this.tweetID}`
       }, {merge: true})

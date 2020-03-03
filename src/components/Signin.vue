@@ -4,7 +4,7 @@
     <p>You don't have an account?
       <router-link to="/signup">create account now!!</router-link>
     </p>
-    <div id="firebaseui-auth-container"></div>
+    <div id="firebaseui-auth-container" ></div>
     <div id="loader">Loading...</div>
   </div>
 </template>
@@ -16,20 +16,27 @@ import 'firebaseui/dist/firebaseui.css'
 
 export default {
   name: 'Signin',
-  data: function () {
-    return {
-      username: '',
-      password: ''
-    }
-  },
   mounted () {
     const ui = new firebaseui.auth.AuthUI(firebase.auth())
     const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-        // User successfully signed in.
-        // Return type determines whether we continue the redirect automatically
-        // or whether we leave that to developer to handle.
+          const twitterID = authResult.additionalUserInfo.username
+          const {uid} = firebase.auth().currentUser
+          // User successfully signed in.
+          // Return type determines whether we continue the redirect automatically
+          // or whether we leave that to developer to handle.
+          console.log(authResult, redirectUrl)
+          var db = firebase.firestore()
+          db.collection('uid').doc(uid).set({
+            twusername: `${twitterID}`
+          }, {merge: true})
+            .then(function () {
+              console.log(twitterID)
+            })
+            .catch(function (error) {
+              console.error('Error writing document: ', error)
+            })
           return true
         },
         uiShown: function () {
@@ -44,13 +51,6 @@ export default {
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.TwitterAuthProvider.PROVIDER_ID
-          .then((userCredential) => {
-          // Get the Twitter screen name.
-            console.log(userCredential.additionalUserInfo.username);
-          })
-          .catch((error) => {
-          // An error occurred.
-          })
       ],
       // Terms of service url.
       tosUrl: ''

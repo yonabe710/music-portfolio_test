@@ -138,10 +138,10 @@ export default {
     var docRef = db.collection('uid').doc(this.userid)
     docRef.get().then(function (doc) {
       if (doc.exists) {
-        console.log('Document data:', doc.data().pfcontent)
-        console.log('Document data:', doc.data().yturl)
-        console.log('Document data:', doc.data().twid)
-        console.log('Document data:', doc.data().scid)
+        // console.log('Document data:', doc.data().pfcontent)
+        // console.log('Document data:', doc.data().yturl)
+        // console.log('Document data:', doc.data().twid)
+        // console.log('Document data:', doc.data().scid)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
         self.tweetID = doc.data().twid
