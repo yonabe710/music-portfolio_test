@@ -1,10 +1,11 @@
 <template>
   <div class="signin">
     <h2>Sign in</h2>
-    <p>You don't have an account?
+    <p>
+      You don't have an account?
       <router-link to="/signup">create account now!!</router-link>
     </p>
-    <div id="firebaseui-auth-container" ></div>
+    <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
   </div>
 </template>
@@ -47,7 +48,7 @@ export default {
       },
       // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
       signInFlow: 'popup',
-      signInSuccessUrl: '/', // Sign in後の遷移先
+      signInSuccessUrl: '/#/', // Sign in後の遷移先
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.TwitterAuthProvider.PROVIDER_ID
@@ -61,7 +62,8 @@ export default {
 </script>
 
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {
@@ -81,7 +83,7 @@ a {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 input {
   margin: 10px 0;
