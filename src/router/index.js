@@ -16,11 +16,6 @@ Vue.use(Router)
 let router = new Router({
   routes: [
     {
-      path: '/:twitterid',
-      name: 'Main',
-      component: Main
-    },
-    {
       path: '/mypage/',
       name: 'MyPage',
       component: MyPage,
@@ -59,7 +54,12 @@ let router = new Router({
       name: 'ScEditor',
       component: scEditor,
       meta: { requiresAuth: true }
-    }
+    },
+    {
+      path: '/:twitterid',
+      name: 'Main',
+      component: Main
+    },
   ]
 })
 
