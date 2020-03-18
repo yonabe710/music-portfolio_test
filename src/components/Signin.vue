@@ -1,10 +1,11 @@
 <template>
   <div class="signin">
     <h2>Sign in</h2>
-    <p>You don't have an account?
+    <p>
+      You don't have an account?
       <router-link to="/signup">create account now!!</router-link>
     </p>
-    <div id="firebaseui-auth-container" ></div>
+    <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
   </div>
 </template>
@@ -61,7 +62,8 @@ export default {
 </script>
 
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {
@@ -81,7 +83,7 @@ a {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 input {
   margin: 10px 0;
