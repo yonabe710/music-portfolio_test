@@ -12,7 +12,9 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 
 Vue.use(Router)
-
+let User = {
+  template: '<div>User {{ $route.params.twitter_id }}</div>'
+}
 let router = new Router({
   mode: 'history',
   routes: [
@@ -20,6 +22,11 @@ let router = new Router({
       path: '/',
       name: 'Main',
       component: Main
+    },
+    {
+      path: '/user/:twitter_id',
+      // name: 'Main',
+      component: User
     },
     {
       path: '/mypage/',
@@ -60,12 +67,12 @@ let router = new Router({
       name: 'ScEditor',
       component: scEditor,
       meta: { requiresAuth: true }
-    },
-    {
-      path: '/:twitterid',
-      name: 'Main',
-      component: Main
-    },
+    }
+    // {
+    //   path: '/:twitterid',
+    //   name: 'Main',
+    //   component: Main
+    // },
   ]
 })
 
