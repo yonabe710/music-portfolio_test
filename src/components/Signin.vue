@@ -16,19 +16,19 @@ import 'firebaseui/dist/firebaseui.css'
 
 export default {
   name: 'Signin',
-  mounted () {
+  created () {
     const ui = new firebaseui.auth.AuthUI(firebase.auth())
     const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
           const twitterID = authResult.additionalUserInfo.username
-          const {uid} = firebase.auth().currentUser
+          const userid = firebase.auth().currentUser.uid
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
           console.log(authResult, redirectUrl)
           var db = firebase.firestore()
-          db.collection('uid').doc(uid).set({
+          db.collection('uid').doc(userid).set({
             twusername: `${twitterID}`
           }, {merge: true})
             .then(function () {
@@ -47,7 +47,7 @@ export default {
       },
       // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
       signInFlow: 'popup',
-      signInSuccessUrl: '/', // Sign in後の遷移先
+      signInSuccessUrl: '/#/', // Sign in後の遷移先
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.TwitterAuthProvider.PROVIDER_ID

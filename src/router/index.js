@@ -16,21 +16,15 @@ Vue.use(Router)
 let router = new Router({
   routes: [
     {
-      path: '/',
+      path: '/:twitterid',
       name: 'Main',
-      component: Main,
-      meta: { requiresAuth: true }
+      component: Main
     },
     {
       path: '/mypage/',
       name: 'MyPage',
       component: MyPage,
       meta: { requiresAuth: true }
-    },
-    {
-      path: '/mypage/:twitterid',
-      // name: 'MyPage',
-      component: MyPage
     },
     {
       path: '/signup',
@@ -65,32 +59,6 @@ let router = new Router({
       name: 'ScEditor',
       component: scEditor,
       meta: { requiresAuth: true }
-    },
-    {
-      path: '/:twitterid',
-      // name: 'Main',
-      component: Main,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/pfeditor/:twitterid',
-      // name: 'PfEditor',
-      component: pfEditor
-    },
-    {
-      path: '/yteditor/:twitterid',
-      // name: 'YtEditor',
-      component: ytEditor
-    },
-    {
-      path: '/tweditor/:twitterid',
-      // name: 'TwEditor',
-      component: twEditor
-    },
-    {
-      path: '/sceditor/:twitterid',
-      // name: 'ScEditor',
-      component: scEditor
     }
   ]
 })
