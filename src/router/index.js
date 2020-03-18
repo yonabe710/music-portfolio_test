@@ -16,6 +16,11 @@ Vue.use(Router)
 let router = new Router({
   routes: [
     {
+      path: '/',
+      name: 'Main',
+      component: Main
+    },
+    {
       path: '/mypage/',
       name: 'MyPage',
       component: MyPage,
