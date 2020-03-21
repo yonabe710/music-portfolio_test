@@ -131,7 +131,7 @@ export default {
   created () {
     let self = this
     var db = firebase.firestore()
-    var docRef = db.collection('uid').doc(this.userid)
+    var docRef = db.collection('twuserid').doc(this.twuserid)
     docRef.get().then(function (doc) {
       if (doc.exists) {
         console.log('Document data:', doc.data().pfcontent)
