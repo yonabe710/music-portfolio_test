@@ -21,7 +21,8 @@ let router = new Router({
     {
       path: '/',
       name: 'Main',
-      component: Main
+      component: Main,
+      meta: { requiresAuth: true }
     },
     {
       path: '/user/:twitter_id',
