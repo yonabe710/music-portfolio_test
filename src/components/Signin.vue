@@ -48,7 +48,7 @@ export default {
       },
       // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
       signInFlow: 'popup',
-      signInSuccessUrl: '/#/', // Sign in後の遷移先
+      signInSuccessUrl: '/#/mypage', // Sign in後の遷移先
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.TwitterAuthProvider.PROVIDER_ID
