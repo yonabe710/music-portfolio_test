@@ -22,18 +22,18 @@ export default {
     const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-          const twitterID = authResult.additionalUserInfo.username
-          const userid = firebase.auth().currentUser.uid
+          const twuserid = authResult.additionalUserInfo.username
+          // const userid = firebase.auth().currentUser.uid
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
           console.log(authResult, redirectUrl)
           var db = firebase.firestore()
-          db.collection('uid').doc(userid).set({
-            twusername: `${twitterID}`
+          db.collection('uid').doc(twuserid).set({
+            twuserid: `${twuserid}`
           }, {merge: true})
             .then(function () {
-              console.log(twitterID)
+              console.log(twuserid)
             })
             .catch(function (error) {
               console.error('Error writing document: ', error)
