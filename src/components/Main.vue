@@ -133,7 +133,7 @@ export default {
     let self = this
     const twuserid = this.$route.params.id
     const db = firebase.firestore()
-    const docRef = db.collection('twuserid').doc(twuserid)
+    const docRef = db.collection('uid').doc(userid)
     docRef.get().then(function (doc) {
       if (doc.exists) {
         console.log('Document data:', doc.data().pfcontent)
