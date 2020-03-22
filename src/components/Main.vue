@@ -27,7 +27,7 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <router-link to="/mypage" class="button is-primary">
+                    <router-link to="/signin" class="button is-primary">
                       <strong>Mypage</strong>
                     </router-link>
                     <router-link to="/signin" class="button is-light">
@@ -133,7 +133,7 @@ export default {
     let self = this
     const db = firebase.firestore()
     const collectionRef = db.collection('uid')
-    const docRef = collectionRef.where('twusername', '==', this.$route.params.id)
+    const docRef = collectionRef.where('twuserid', '==', this.$route.params.id)
     docRef.get().then(function (querySnapshot) {
       querySnapshot.forEach(doc => {
         if (doc.exists) {
