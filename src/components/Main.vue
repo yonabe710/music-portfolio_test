@@ -131,16 +131,15 @@ export default {
   },
   created () {
     let self = this
-    var twuserid = this.$router.path.pathname.split(this.slash).pop()
-    var db = firebase.firestore()
-    var docRef = db.collection('twuserid').doc(twuserid)
+    const twuserid = this.$route.params.id
+    const db = firebase.firestore()
+    const docRef = db.collection('twuserid').doc(twuserid)
     docRef.get().then(function (doc) {
       if (doc.exists) {
         console.log('Document data:', doc.data().pfcontent)
         console.log('Document data:', doc.data().yturl)
         console.log('Document data:', doc.data().twid)
         console.log('Document data:', doc.data().scid)
-        console.log(twuserid)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
         self.tweetID = doc.data().twid
