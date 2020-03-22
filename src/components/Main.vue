@@ -131,24 +131,26 @@ export default {
   },
   created () {
     let self = this
-    const twuserid = this.$route.params.id
     const db = firebase.firestore()
-    const docRef = db.collection('uid').doc(userid)
-    docRef.get().then(function (doc) {
-      if (doc.exists) {
-        console.log('Document data:', doc.data().pfcontent)
-        console.log('Document data:', doc.data().yturl)
-        console.log('Document data:', doc.data().twid)
-        console.log('Document data:', doc.data().scid)
-        console.log(self.$route.params.id)
-        self.profile = doc.data().pfcontent
-        self.videoID = doc.data().yturl
-        self.tweetID = doc.data().twid
-        self.soundID = doc.data().scid
-      } else {
-      // doc.data() will be undefined in this case
-        console.log('No such document!')
-      }
+    const collectionRef = db.collection('uid')
+    const docRef = collectionRef.where('twusername', '==', this.$route.params.id)
+    docRef.get().then(function (querySnapshot) {
+      querySnapshot.forEach(doc => {
+        if (doc.exists) {
+          console.log('Document data:', doc.data().pfcontent)
+          console.log('Document data:', doc.data().yturl)
+          console.log('Document data:', doc.data().twid)
+          console.log('Document data:', doc.data().scid)
+          console.log(self.$route.params.id)
+          self.profile = doc.data().pfcontent
+          self.videoID = doc.data().yturl
+          self.tweetID = doc.data().twid
+          self.soundID = doc.data().scid
+        } else {
+          // doc.data() will be undefined in this case
+          console.log('No such document!')
+        }
+      })
     }).catch(function (error) {
       console.log('Error getting document:', error)
     })
