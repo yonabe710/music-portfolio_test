@@ -23,13 +23,13 @@ export default {
       callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
           const twuserid = authResult.additionalUserInfo.username
-          // const userid = firebase.auth().currentUser.uid
+          const userid = firebase.auth().currentUser.uid
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
           console.log(authResult, redirectUrl)
           var db = firebase.firestore()
-          db.collection('uid').doc(uid).set({
+          db.collection('uid').doc(userid).set({
             twuserid: `${twuserid}`
           }, {merge: true})
             .then(function () {
