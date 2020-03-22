@@ -140,7 +140,7 @@ export default {
         console.log('Document data:', doc.data().yturl)
         console.log('Document data:', doc.data().twid)
         console.log('Document data:', doc.data().scid)
-        console.log(this.$route.params.id)
+        console.log(self.$route.params.id)
         self.profile = doc.data().pfcontent
         self.videoID = doc.data().yturl
         self.tweetID = doc.data().twid
