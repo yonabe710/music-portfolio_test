@@ -29,7 +29,7 @@ export default {
           // or whether we leave that to developer to handle.
           console.log(authResult, redirectUrl)
           var db = firebase.firestore()
-          db.collection('twuserid').doc(twuserid).set({
+          db.collection('uid').doc(uid).set({
             twuserid: `${twuserid}`
           }, {merge: true})
             .then(function () {

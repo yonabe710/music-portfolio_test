@@ -125,7 +125,7 @@ export default {
     return {
       twurl: 'https://twitter.com/k_onshitsu/status/1096038493417959424',
       tweetID: '1096038493417959424',
-      username: firebase.auth().UserCredential.additionalUserInfo.username,
+      // username: firebase.auth().UserCredential.additionalUserInfo.username,
       userid: firebase.auth().currentUser.uid,
       slash: '/'
     }
