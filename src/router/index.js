@@ -16,6 +16,7 @@ Vue.use(Router)
 //   template: '<div>Main {{ $route.params.id }}</div>'
 // }
 let router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/mypage/',
@@ -66,6 +67,10 @@ let router = new Router({
       path: '/:id',
       name: 'Main',
       component: Main
+    },
+    { 
+      path: '*', 
+      component: NotFoundComponent 
     }
   ]
 })
