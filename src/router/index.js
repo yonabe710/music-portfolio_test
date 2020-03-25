@@ -67,10 +67,6 @@ let router = new Router({
       path: '/:id',
       name: 'Main',
       component: Main
-    },
-    { 
-      path: '*', 
-      component: NotFoundComponent 
     }
   ]
 })
