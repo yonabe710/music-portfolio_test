@@ -17,6 +17,7 @@ Vue.use(Router)
 // }
 let router = new Router({
   mode: 'history',
+  base: '/',
   routes: [
     {
       path: '/mypage/',
