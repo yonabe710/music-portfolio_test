@@ -17,10 +17,10 @@ Vue.use(Router)
 // }
 let router = new Router({
   mode: 'history',
-  base: '/',
+  base: 'process.env.BASE_URL',
   routes: [
     {
-      path: '/mypage/',
+      path: '/mypage',
       name: 'MyPage',
       component: MyPage,
       meta: { requiresAuth: true }
@@ -36,25 +36,25 @@ let router = new Router({
       component: Signin
     },
     {
-      path: '/pfeditor/',
+      path: '/pfeditor',
       name: 'PfEditor',
       component: pfEditor,
       meta: { requiresAuth: true }
     },
     {
-      path: '/yteditor/',
+      path: '/yteditor',
       name: 'YtEditor',
       component: ytEditor,
       meta: { requiresAuth: true }
     },
     {
-      path: '/tweditor/',
+      path: '/tweditor',
       name: 'TwEditor',
       component: twEditor,
       meta: { requiresAuth: true }
     },
     {
-      path: '/sceditor/',
+      path: '/sceditor',
       name: 'ScEditor',
       component: scEditor,
       meta: { requiresAuth: true }
