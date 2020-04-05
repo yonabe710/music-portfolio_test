@@ -69,10 +69,10 @@ let router = new Router({
       name: 'Main',
       component: Main
     },
-    {
-      path: '*',
-      redirect: '/'
-    }
+    // {
+    //   path: '*',
+    //   redirect: '/'
+    // }
   ]
 })
 
